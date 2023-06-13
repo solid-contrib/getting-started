@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
-## Getting Started
+# Getting started with Solid
 
-First, run the development server:
+## Organizing, creating and building guides to the Solid Docs
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Our Goal
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+While there is a lot of Solid documentation out there, and resources like forums and chat rooms for getting started, we've found that it can be difficult--for an interested user or developer or engineer--to know where to jump in, or perhaps even **what** to start learning first. We aim to create a comprehensive and user-friendly guide to getting started with Solid--whether registering and using a Pod, developing apps, hosting a server (Pod provider), or contributing to the project. We will do this by: 1) organizing links to existing documentation, 2) creating interactive guides to documentation based on interests and needs, and 3) creating new documentation employing techniques designed for different learning styles and use cases.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Join the Fun
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+All are welcome to participate! We invite input, feedback, questions and contributions from beginners to experienced Solid users. If you're interested in using Solid, or building Solid apps, or hosting one or more Solid servers, please join us to help introduce new members to Solid. We have adopted the [Contributor Covenant](https://www.contributor-covenant.org/), which you can read in our [CODE OF CONDUCT](../CODE_OF_CONDUCT.md) file.
 
-## Learn More
+We plan to use Github's built-in tools for creating issues, adding comments, etc., but for now, if you have a question or comment, or would like a tip on how to start contributing, please send an email to: jonwilsonmn@gmail.com
 
-To learn more about Next.js, take a look at the following resources:
+### The End Product
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This repository will be hosted as a Github page (for now, at least), and in its first iteration, will likely be a collection of links to documentation, protocols, and app examples. From there we hope to grow it into a more interactive, comprehensive, user-friendly guide to getting started with Solid. Depending on the limitations of Github pages, we may host it elsewhere eventually.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Inspiration: the Diataxis system
 
-## Deploy on Vercel
+The idea for this system of organizing a guide to documentation based on its purpose, originally came from the [Diataxis framework](https://diataxis.fr/), which categorizes documentation as four types: tutorials, how-to guides, explanation, and reference. Further, it explains **when** these different types are most useful to a user, based on their immediate goals.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+In addition to the above, we've also noticed (and read a little about) how different presentation tools and techniques can be honed to different types of learners, and different types of material.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Our goal is ambitious, but we plan to start simply (with a list of links), and build step by step, combining and implementing the above insights into a system that, we hope, will eventually offer a comprehensive and user-friendly guide to Solid that is tailored to each person's needs and interests.
+
+We believe it will be worth the effort, and hope you will join us!
