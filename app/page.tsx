@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center pt-5">
-      <header className='text-3xl text-cyan-700 bg-yellow-200 w-full h-16 font-bold flex items-center mb-10 shadow-lg pl-5'>Getting Started with Solid</header>
+      <header className='text-5xl text-cyan-800 bg-cyan-100 w-full h-28 font-bold flex items-center mb-10 shadow-lg pl-5'>Getting Started with Solid</header>
       <div>
         <h2>Work Items</h2>
         <p>
