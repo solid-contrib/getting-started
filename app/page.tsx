@@ -18,9 +18,8 @@ export default async function Home() {
     <main>
       <header className="bg-primary-500 shadow-lg my-7">
           <div className="flex text-primary-900">
-          <span className="flex pl-10 font-extrabold text-9xl tracking-tighter basis-3/5">Solid</span>
-            <span className='flex pl-5 text-7xl tracking-tight font-light items-end basis-2/5'>Developer Group</span>
-            
+          <span className="flex pl-10 font-extrabold text-7xl tracking-tighter items-end">Solid</span>
+          <span className='flex text-7xl tracking-tight font-extralight items-end'>DeveloperGroup</span>
           </div>
       </header>      
       <div className='flex ml-10 gap-8'>  
