@@ -18,8 +18,8 @@ export default async function Home() {
     <main>
       <header className="bg-primary-500 shadow-lg my-7">
           <div className="flex text-primary-900">
-          <span className="flex pl-10 font-extrabold text-7xl tracking-tighter items-end">Solid</span>
-          <span className='flex text-7xl tracking-tight font-extralight items-end'>DeveloperGroup</span>
+          <span className="flex pl-10 font-extrabold text-8xl tracking-tighter items-end">Solid</span>
+          <span className='flex text-8xl tracking-tight font-extralight items-end'>DeveloperGroup</span>
           </div>
       </header>      
       <div className='flex ml-10 gap-8'>  
@@ -27,10 +27,10 @@ export default async function Home() {
           <h2 className='text-2xl'>Documentation and Other Resources</h2>
             {linksList.length ? (
               linksList.map((element: { name: string, url: string }) => (
-                <>
+                <div key={element.url}>
                   <p className='mt-10'>{element.name}</p>
                   <Link href={element.url}>{element.url}</Link>
-                </>
+                </div>
               ))
             ) : <p className='mt-10'>Loading...</p>}
         </div>
