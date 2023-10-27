@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "print-lint-rules": "eslint --print-config app/page.tsx > eslintrules.json"
   },
   "dependencies": {
     "@inrupt/solid-client": "^1.30.2",
