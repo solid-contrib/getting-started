@@ -57,6 +57,9 @@ module.exports = {
           700: 'HSL(90, 60%, 50%)',
           900: 'HSL(90, 40%, 40%)',
         },
+        accent5: {
+          600: 'HSL(178, 93%, 21%)',
+        },
       },
       textShadow: {
         sm: '0 1px 2px var(--tw-shadow-color)',
