@@ -15,7 +15,7 @@ export default async function TypeCards() {
     {
       type: 'Non-Documentation Resources: Apps, Solid World Videos, etc.',
       description:
-        'Very useful for seeing working examples, learning about the Solid ecosystem, and many othe purposes',
+        'Very useful for seeing working examples, learning about the Solid ecosystem, and many other purposes',
     },
     {
       type: 'Explanations and Walk-Throughs',
