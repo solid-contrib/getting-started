@@ -20,7 +20,7 @@ export default async function Home() {
 
   return (
     <main>
-      <header className="bg-primary-900 shadow-lg my-7 mb-10">
+      <header className="bg-primary-800 shadow-lg my-7 mb-10">
         <div className="flex text-primary-300">
           <span className="flex pl-10 font-extrabold text-8xl tracking-tighter items-end">
             Solid

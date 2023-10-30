@@ -34,12 +34,12 @@ export default async function TypeCards() {
       {types.map((type) => (
         <div className="flex basis-1/3 mb-10" key={type.type}>
           <div className="w-4/5 h-40 border-solid border-1 rounded-md shadow-lg">
-            <div className="h-16 bg-accent5-700 rounded-t-md">
-              <div className="text-lg text-white flex justify-center px-2 pt-1">
+            <div className="h-16 bg-primary-700 rounded-t-md">
+              <div className="text-lg text-primary-50 flex justify-center px-2 pt-1">
                 {type.type}
               </div>
             </div>
-            <p className="text-accent5-900 text-md p-2">{type.description}</p>
+            <p className="text-primary-900 text-md p-2">{type.description}</p>
           </div>
         </div>
       ))}
