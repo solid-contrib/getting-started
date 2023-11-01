@@ -27,13 +27,16 @@ export default async function TypeCards() {
       description:
         'Information-oriented, very practical, detailed official sources',
     },
-    { type: 'View All', description: '' },
+    {
+      type: 'View All Resources',
+      description: 'All documentation and non-documentation resources',
+    },
   ]
   return (
     <div className="flex flex-row flex-wrap">
       {types.map((type) => (
         <div className="flex basis-1/3 mb-10" key={type.type}>
-          <div className="w-4/5 h-40 border-solid border-1 rounded-md shadow-lg">
+          <div className="w-4/5 h-40 border-solid border-1 rounded-md shadow-lg bg-white">
             <div className="h-16 bg-primary-700 rounded-t-md">
               <div className="text-lg text-primary-50 flex justify-center px-2 pt-1">
                 {type.type}
