@@ -47,7 +47,9 @@ export default async function Home() {
             )}
           </div>
         </div>
-        <div className="basis-1/12 text-2xl mr-4">Add a Resource</div>
+        <div className="basis-1/12 text-2xl mr-4 hover:text-primary-300 hover:drop-shadow-lg">
+          Add a Resource
+        </div>
       </div>
     </main>
   )
