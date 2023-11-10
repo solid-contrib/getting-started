@@ -33,12 +33,12 @@ export default async function Home() {
       <div className="flex ml-10 gap-8">
         <div className="basis-11/12">
           <TypeCards></TypeCards>
-          <div className="hidden">
-            <h2 className="text-2xl">Documentation and Other Resources</h2>
+          <div>
+            <h2 className="text-4xl">All Documentation and Other Resources</h2>
             {linksList.length ? (
               linksList.map((resource: { name: string; url: string }) => (
                 <div key={resource.url}>
-                  <p className="mt-10">{resource.name}</p>
+                  <p className="font-bold mt-10">{resource.name}</p>
                   <Link href={resource.url}>{resource.url}</Link>
                 </div>
               ))
