@@ -56,9 +56,11 @@ module.exports = {
         },
       },
       textShadow: {
-        sm: '0 1px 2px var(--tw-shadow-color)',
-        DEFAULT: '0 2px 4px var(--tw-shadow-color)',
-        lg: '0 8px 16px var(--tw-shadow-color)',
+        neonGlow:
+          '0 0 7px HSL(180, 100%, 50%), 0 0 10px HSL(180, 100%, 50%), 0 0 21px HSL(180, 100%, 50%), 0 0 42px HSL(180, 100%, 50%), 0 0 82px HSL(180, 100%, 50%), 0 0 92px HSL(180, 100%, 50%), 0 0 102px HSL(180, 100%, 50%),0 0 151px HSL(180, 100%, 50%)',
+        sm: '0 1px 2px black',
+        DEFAULT: '0 2px 4px black',
+        lg: '0 8px 16px black',
       },
     },
   },
