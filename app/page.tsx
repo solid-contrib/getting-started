@@ -13,10 +13,11 @@ export default async function Home() {
           </span>
         </div>
       </header>
-      <div className="bg-primary-800 mb-10 pl-5 py-3">
+      <div className="flex bg-primary-800 mb-10 pl-5 py-3">
         <div className="text-2xl text-primary-300 hover:text-shadow-neonGlow">
           Add a Resource
         </div>
+        <div className="text-2xl text-primary-300 hover:text-shadow-neonGlow"></div>
       </div>
       <div className="flex ml-10 gap-8">
         <div className="basis-11/12">

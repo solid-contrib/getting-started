@@ -54,18 +54,15 @@ export default async function Sections() {
       <div className="basis-3/4">
         <div className="mb-10">
           <div className="max-w-max">
-            <div className="bg-primary-700 p-2">
-              <span id="tutorials" className="text-2xl text-primary-50">
+            <div className="bg-primary-800 p-3">
+              <span id="tutorials" className="text-3xl text-primary-50">
                 Tutorials
               </span>
-              <p className="text-primary-50 text-md">
-                Learning-oriented, useful when studying or planning a project
-              </p>
             </div>
           </div>
           {tutorialList.length &&
             tutorialList.map((resource) => (
-              <div key={resource.name}>
+              <div className="pl-3" key={resource.name}>
                 <p className="font-bold mt-2">{resource.name}</p>
                 <Link href={resource.url}>{resource.url}</Link>
               </div>
@@ -74,19 +71,15 @@ export default async function Sections() {
 
         <div className="mb-10">
           <div className="max-w-max">
-            <div className="bg-primary-700 p-2">
-              <span id="how-to" className="text-2xl text-primary-50">
+            <div className="bg-primary-800 p-3">
+              <span id="how-to" className="text-3xl text-primary-50">
                 How-to Guides and Examples
               </span>
-              <p className="text-primary-50 text-md">
-                Problem-oriented, useful when working, specific and narrow in
-                focus
-              </p>
             </div>
           </div>
           {howToList.length &&
             howToList.map((resource) => (
-              <div key={resource.name}>
+              <div className="pl-3" key={resource.name}>
                 <p className="font-bold mt-2">{resource.name}</p>
                 <Link href={resource.url}>{resource.url}</Link>
               </div>
@@ -95,19 +88,15 @@ export default async function Sections() {
 
         <div className="mb-10">
           <div className="max-w-max">
-            <div className="bg-primary-700 p-2">
-              <span id="explanation" className="text-2xl text-primary-50">
+            <div className="bg-primary-800 p-3">
+              <span id="explanation" className="text-3xl text-primary-50">
                 Explanations and Walk-Throughs
               </span>
-              <p className="text-primary-50 text-md">
-                Understanding-oriented, useful when learning, tying concepts
-                together, doing deep dives
-              </p>
             </div>
           </div>
           {explanationList.length &&
             explanationList.map((resource) => (
-              <div key={resource.name}>
+              <div className="pl-3" key={resource.name}>
                 <p className="font-bold mt-2">{resource.name}</p>
                 <Link href={resource.url}>{resource.url}</Link>
               </div>
@@ -116,18 +105,15 @@ export default async function Sections() {
 
         <div className="mb-10">
           <div className="max-w-max">
-            <div className="bg-primary-700 p-2">
-              <span id="reference" className="text-2xl text-primary-50">
-                Protocols, Specifications and other Reference Information
+            <div className="bg-primary-800 p-3">
+              <span id="reference" className="text-3xl text-primary-50">
+                Protocols, Specifications and other Reference Materials
               </span>
-              <p className="text-primary-50 text-md">
-                Information-oriented, very practical, detailed official sources
-              </p>
             </div>
           </div>
           {referenceList.length &&
             referenceList.map((resource) => (
-              <div key={resource.name}>
+              <div className="pl-3" key={resource.name}>
                 <p className="font-bold mt-2">{resource.name}</p>
                 <Link href={resource.url}>{resource.url}</Link>
               </div>
@@ -135,8 +121,8 @@ export default async function Sections() {
         </div>
       </div>
 
-      <div className="basis-1/4">
-        <p className="text-lg">Sections</p>
+      <div className="basis-1/4 text-xl">
+        <p className="text-2xl">Sections</p>
         <div className="pl-3">
           <a href="#tutorials">Tutorials</a>
         </div>
@@ -155,7 +141,10 @@ export default async function Sections() {
 }
 
 async function getData() {
-  console.log('getting data from pod')
+  // getStaticProps is now deprecated, since all Nextjs 13 components are now server components by default,
+  // so the pod data is apparently retrieved at build time and cached on the server--aka no wait time for users
+  // even if the pod is down, the server will apparently use cached values, so the site is never slowed due to pod responses
+  // one question: does it only make a request at build time, or also at run time, and then update its response if there is new data
   const myDataset = await getSolidDataset(
     'https://onboarding.solidcommunity.net/public/Links',
     { fetch }
