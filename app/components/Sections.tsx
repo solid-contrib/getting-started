@@ -155,6 +155,7 @@ export default async function Sections() {
 }
 
 async function getData() {
+  console.log('getting data from pod')
   const myDataset = await getSolidDataset(
     'https://onboarding.solidcommunity.net/public/Links',
     { fetch }
