@@ -52,12 +52,10 @@ export default async function Sections() {
   return (
     <div className="flex">
       <div className="basis-3/4">
-        <div className="mb-10">
+        <div className="mb-10" id="tutorials">
           <div className="max-w-max">
             <div className="bg-primary-800 p-3">
-              <span id="tutorials" className="text-3xl text-primary-50">
-                Tutorials
-              </span>
+              <span className="text-3xl text-primary-50">Tutorials</span>
             </div>
           </div>
           {tutorialList.length &&
@@ -69,10 +67,10 @@ export default async function Sections() {
             ))}
         </div>
 
-        <div className="mb-10">
+        <div className="mb-10" id="how-to">
           <div className="max-w-max">
             <div className="bg-primary-800 p-3">
-              <span id="how-to" className="text-3xl text-primary-50">
+              <span className="text-3xl text-primary-50">
                 How-to Guides and Examples
               </span>
             </div>
@@ -86,10 +84,10 @@ export default async function Sections() {
             ))}
         </div>
 
-        <div className="mb-10">
+        <div className="mb-10" id="explanation">
           <div className="max-w-max">
             <div className="bg-primary-800 p-3">
-              <span id="explanation" className="text-3xl text-primary-50">
+              <span className="text-3xl text-primary-50">
                 Explanations and Walk-Throughs
               </span>
             </div>
@@ -103,10 +101,10 @@ export default async function Sections() {
             ))}
         </div>
 
-        <div className="mb-10">
+        <div className="mb-10" id="reference">
           <div className="max-w-max">
             <div className="bg-primary-800 p-3">
-              <span id="reference" className="text-3xl text-primary-50">
+              <span className="text-3xl text-primary-50">
                 Protocols, Specifications and other Reference Materials
               </span>
             </div>
@@ -120,8 +118,7 @@ export default async function Sections() {
             ))}
         </div>
       </div>
-
-      <div className="basis-1/4 text-xl">
+      <div className="fixed top-1/4 right-1/4  bottom-10 text-xl">
         <p className="text-2xl">Sections</p>
         <div className="pl-3">
           <a href="#tutorials">Tutorials</a>

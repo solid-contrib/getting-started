@@ -20,9 +20,20 @@ html,
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(250, 250, 248);
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
   line-height: 1.6;
   font-size: 18px;
+  scroll-padding-top: 180px;
   @apply bg-neutral-100;
 }
