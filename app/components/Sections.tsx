@@ -118,18 +118,20 @@ export default async function Sections() {
             ))}
         </div>
       </div>
-      <div className="fixed top-1/4 right-1/4  bottom-10 text-xl">
-        <p className="text-2xl">Sections</p>
-        <div className="pl-3">
+      <div className="fixed top-52 right-1/4 text-xl">
+        <p className="text-2xl pl-1 text-primary-800 bg-primary-300">
+          Sections
+        </p>
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300">
           <a href="#tutorials">Tutorials</a>
         </div>
-        <div className="pl-3">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300">
           <a href="#how-to">How-To Guides</a>
         </div>
-        <div className="pl-3">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300">
           <a href="#explanation">Explanation</a>
         </div>
-        <div className="pl-3">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300">
           <a href="#reference">Reference</a>
         </div>
       </div>
