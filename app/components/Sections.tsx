@@ -122,16 +122,16 @@ export default async function Sections() {
         <p className="text-2xl pl-1 text-primary-800 bg-primary-300">
           Sections
         </p>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white">
           <a href="#tutorials">Tutorials</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white">
           <a href="#how-to">How-To Guides</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white">
           <a href="#explanation">Explanation</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white">
           <a href="#reference">Reference</a>
         </div>
       </div>
