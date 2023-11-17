@@ -34,6 +34,7 @@ export default function Nav() {
       default:
         '/'
     }
+    console.log('router.pushing to: ', link)
     router.push(link)
   }
 
