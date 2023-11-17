@@ -2,12 +2,11 @@
 
 import { MouseEvent, useEffect, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function Nav() {
   const pathname = usePathname()
   const [activeItem, setActiveItem] = useState('')
-  const navItems = ['Solid Documentation', 'Add a Resource']
-  const router = useRouter()
 
   useEffect(() => {
     switch (pathname) {
@@ -22,37 +21,28 @@ export default function Nav() {
     }
   }, [pathname])
 
-  const handleClick = (e: any) => {
-    let link = ''
-    switch (e.target.innerText) {
-      case 'Add a Resource':
-        link = 'add-resource'
-        break
-      case 'Solid Documentation':
-        link = '/'
-        break
-      default:
-        '/'
-    }
-    console.log('router.pushing to: ', link)
-    router.push(link)
-  }
-
   return (
     <div className="flex bg-primary-800 mb-10 pl-5 py-3">
-      {navItems.map((item) => (
-        <button
-          key={item}
-          className={
-            activeItem === item
-              ? 'text-2xl mr-4 text-primary-300 text-shadow-neonGlow'
-              : 'text-2xl mr-4 text-primary-300 hover:text-shadow-neonGlow'
-          }
-          onClick={(e) => handleClick(e)}
-        >
-          {item}
-        </button>
-      ))}
+      <Link
+        className={
+          activeItem === 'Solid Documentation'
+            ? 'text-2xl mr-4 text-primary-300 text-shadow-neonGlow'
+            : 'text-2xl mr-4 text-primary-300 hover:text-shadow-neonGlow'
+        }
+        href="/"
+      >
+        Solid Documentation
+      </Link>
+      <Link
+        className={
+          activeItem === 'Add a Resource'
+            ? 'text-2xl mr-4 text-primary-300 text-shadow-neonGlow'
+            : 'text-2xl mr-4 text-primary-300 hover:text-shadow-neonGlow'
+        }
+        href="/add-resource"
+      >
+        Add a Resource
+      </Link>
     </div>
   )
 }
