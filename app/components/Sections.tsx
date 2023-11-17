@@ -63,7 +63,7 @@ export default async function Sections() {
               <div className="pl-3 font-bold mt-2" key={resource.name}>
                 <Link
                   className="bg-accent1-400 p-1 hover:text-white hover:bg-accent1-700"
-                  href={resource.url}
+                  href={resource.url || ''}
                 >
                   {resource.name}
                 </Link>
@@ -84,7 +84,7 @@ export default async function Sections() {
               <div className="pl-3 font-bold mt-2" key={resource.name}>
                 <Link
                   className="bg-accent1-400 p-1 hover:text-white hover:bg-accent1-700"
-                  href={resource.url}
+                  href={resource.url || ''}
                 >
                   {resource.name}
                 </Link>
@@ -105,7 +105,7 @@ export default async function Sections() {
               <div className="pl-3 font-bold mt-2" key={resource.name}>
                 <Link
                   className="bg-accent1-400 p-1 hover:text-white hover:bg-accent1-700"
-                  href={resource.url}
+                  href={resource.url || ''}
                 >
                   {resource.name}
                 </Link>
@@ -126,7 +126,7 @@ export default async function Sections() {
               <div className="pl-3 font-bold mt-2" key={resource.name}>
                 <Link
                   className="bg-accent1-400 p-1 hover:text-white hover:bg-accent1-700"
-                  href={resource.url}
+                  href={resource.url || ''}
                 >
                   {resource.name}
                 </Link>
