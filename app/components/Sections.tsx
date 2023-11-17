@@ -53,22 +53,26 @@ export default async function Sections() {
     <div className="flex">
       <div className="basis-3/4">
         <div className="mb-10" id="tutorials">
-          <div className="max-w-max">
+          <div className="max-w-max mb-2">
             <div className="bg-primary-800 p-3">
               <span className="text-3xl text-primary-50">Tutorials</span>
             </div>
           </div>
           {tutorialList.length &&
             tutorialList.map((resource) => (
-              <div className="pl-3" key={resource.name}>
-                <p className="font-bold mt-2">{resource.name}</p>
-                <Link href={resource.url}>{resource.url}</Link>
+              <div className="pl-3 font-bold mt-2" key={resource.name}>
+                <Link
+                  className="bg-accent1-400 p-1 hover:text-white hover:bg-accent1-700"
+                  href={resource.url}
+                >
+                  {resource.name}
+                </Link>
               </div>
             ))}
         </div>
 
         <div className="mb-10" id="how-to">
-          <div className="max-w-max">
+          <div className="max-w-max mb-2">
             <div className="bg-primary-800 p-3">
               <span className="text-3xl text-primary-50">
                 How-to Guides and Examples
@@ -77,15 +81,19 @@ export default async function Sections() {
           </div>
           {howToList.length &&
             howToList.map((resource) => (
-              <div className="pl-3" key={resource.name}>
-                <p className="font-bold mt-2">{resource.name}</p>
-                <Link href={resource.url}>{resource.url}</Link>
+              <div className="pl-3 font-bold mt-2" key={resource.name}>
+                <Link
+                  className="bg-accent1-400 p-1 hover:text-white hover:bg-accent1-700"
+                  href={resource.url}
+                >
+                  {resource.name}
+                </Link>
               </div>
             ))}
         </div>
 
         <div className="mb-10" id="explanation">
-          <div className="max-w-max">
+          <div className="max-w-max mb-2">
             <div className="bg-primary-800 p-3">
               <span className="text-3xl text-primary-50">
                 Explanations and Walk-Throughs
@@ -94,15 +102,19 @@ export default async function Sections() {
           </div>
           {explanationList.length &&
             explanationList.map((resource) => (
-              <div className="pl-3" key={resource.name}>
-                <p className="font-bold mt-2">{resource.name}</p>
-                <Link href={resource.url}>{resource.url}</Link>
+              <div className="pl-3 font-bold mt-2" key={resource.name}>
+                <Link
+                  className="bg-accent1-400 p-1 hover:text-white hover:bg-accent1-700"
+                  href={resource.url}
+                >
+                  {resource.name}
+                </Link>
               </div>
             ))}
         </div>
 
         <div className="mb-10" id="reference">
-          <div className="max-w-max">
+          <div className="max-w-max mb-2">
             <div className="bg-primary-800 p-3">
               <span className="text-3xl text-primary-50">
                 Protocols, Specifications and other Reference Materials
@@ -111,9 +123,13 @@ export default async function Sections() {
           </div>
           {referenceList.length &&
             referenceList.map((resource) => (
-              <div className="pl-3" key={resource.name}>
-                <p className="font-bold mt-2">{resource.name}</p>
-                <Link href={resource.url}>{resource.url}</Link>
+              <div className="pl-3 font-bold mt-2" key={resource.name}>
+                <Link
+                  className="bg-accent1-400 p-1 hover:text-white hover:bg-accent1-700"
+                  href={resource.url}
+                >
+                  {resource.name}
+                </Link>
               </div>
             ))}
         </div>
@@ -122,16 +138,16 @@ export default async function Sections() {
         <p className="text-2xl pl-1 text-primary-800 bg-primary-300">
           Sections
         </p>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700">
           <a href="#tutorials">Tutorials</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700">
           <a href="#how-to">How-To Guides</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700">
           <a href="#explanation">Explanation</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white">
+        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700">
           <a href="#reference">Reference</a>
         </div>
       </div>

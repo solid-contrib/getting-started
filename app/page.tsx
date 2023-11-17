@@ -3,7 +3,7 @@ import Sections from './components/Sections'
 export default async function Home() {
   return (
     <main>
-      <header className="fixed top-0 bottom-0 w-full">
+      <header className="fixed top-0 w-full">
         <div className="bg-primary-800 shadow-lg border-dashed border-2 border-primary-100 border-x-transparent border-t-transparent">
           <div className="flex text-primary-300">
             <span className="flex pl-10 font-extrabold text-8xl tracking-tighter items-end">
