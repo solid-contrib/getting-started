@@ -23,7 +23,6 @@ export default function Nav() {
   }, [pathname])
 
   const handleClick = (e: any) => {
-    console.log('e.target', e.target.innerText)
     let link = ''
     switch (e.target.innerText) {
       case 'Add a Resource':
@@ -35,7 +34,6 @@ export default function Nav() {
       default:
         '/'
     }
-    console.log('should be pushing to: ', link)
     router.push(link)
   }
 
