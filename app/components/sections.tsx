@@ -1,29 +1,10 @@
-import React from 'react'
+import React, { cache } from 'react'
 import Link from 'next/link'
 import { fetch } from '@inrupt/solid-client-authn-browser'
 import { getSolidDataset, getThingAll } from '@inrupt/solid-client'
 
 export default async function Sections() {
-  const linkDataset = await getData()
-  const links = getThingAll(linkDataset)
-
-  // Build List of links, URL's, categories, about
-  const linksList: any = []
-  for (let i = 0; i < links.length; i++) {
-    let newLink: { name: string; url: string; category: string } = {
-      name: '',
-      url: '',
-      category: '',
-    }
-    newLink.name = (links as any)[i].predicates['http://schema.org/name']
-      ?.literals['http://www.w3.org/2001/XMLSchema#string'][0]
-    newLink.url = (links as any)[i].predicates['http://schema.org/URL']
-      ?.namedNodes[0]
-    newLink.category = (links as any)[i].predicates[
-      'http://schema.org/category'
-    ]?.literals['http://www.w3.org/2001/XMLSchema#string'][0]
-    linksList.push(newLink)
-  }
+  const linksList = await getData()
 
   let referenceList = []
   let explanationList = []
@@ -155,7 +136,10 @@ export default async function Sections() {
   )
 }
 
-async function getData() {
+// revalidate the data at most every hour
+export const revalidate = 3600
+
+const getData = cache(async () => {
   // getStaticProps is now deprecated, since all Nextjs 13 components are now server components by default,
   // so the pod data is apparently retrieved at build time and cached on the server--aka no wait time for users
   // even if the pod is down, the server will apparently use cached values, so the site is never slowed due to pod responses
@@ -166,6 +150,24 @@ async function getData() {
   )
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
+  const links = getThingAll(myDataset)
 
-  return myDataset
-}
+  // Build List of links, URL's, categories, about
+  const linksList: any = []
+  for (let i = 0; i < links.length; i++) {
+    let newLink: { name: string; url: string; category: string } = {
+      name: '',
+      url: '',
+      category: '',
+    }
+    newLink.name = (links as any)[i].predicates['http://schema.org/name']
+      ?.literals['http://www.w3.org/2001/XMLSchema#string'][0]
+    newLink.url = (links as any)[i].predicates['http://schema.org/URL']
+      ?.namedNodes[0]
+    newLink.category = (links as any)[i].predicates[
+      'http://schema.org/category'
+    ]?.literals['http://www.w3.org/2001/XMLSchema#string'][0]
+    linksList.push(newLink)
+  }
+  return linksList
+})
