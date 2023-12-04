@@ -12,7 +12,6 @@ export default function Page() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [webID, setWebID] = useState('')
   const session = getDefaultSession()
-  console.log('webID', webID)
 
   useEffect(() => {
     console.log('about to complete login')
