@@ -1,11 +1,42 @@
-import { getDefaultSession } from '@inrupt/solid-client-authn-browser'
+'use client'
+
+import { useEffect, useState } from 'react'
+import {
+  getDefaultSession,
+  handleIncomingRedirect,
+  login,
+} from '@inrupt/solid-client-authn-browser'
 import Link from 'next/link'
 
-export default async function Page() {
+export default function Page() {
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [webID, setWebID] = useState('')
   const session = getDefaultSession()
-  console.log('session: ', session)
-  if (session.info.isLoggedIn) {
-    const webId = session.info.webId
+  console.log('webID', webID)
+
+  useEffect(() => {
+    console.log('about to complete login')
+    completeLogin()
+    console.log('session.info.isLoggedIn', session.info.isLoggedIn)
+    if (session.info.isLoggedIn) {
+      setWebID(session.info.webId || '')
+      setLoggedIn(true)
+    }
+  }, [session])
+
+  async function startLogin() {
+    // Start the Login Process if not already logged in.
+    if (!getDefaultSession().info.isLoggedIn) {
+      await login({
+        oidcIssuer: 'https://onboarding.solidcommunity.net',
+        redirectUrl: 'http://localhost:3000/add-resource',
+        clientName: 'Solid Onboarding',
+      })
+    }
+  }
+
+  async function completeLogin() {
+    await handleIncomingRedirect()
   }
 
   return (
@@ -24,18 +55,28 @@ export default async function Page() {
         </Link>{' '}
         or you could use SolidCommunity.net, below.
       </p>
-      <Link
-        href="https://solidcommunity.net/"
-        className="ml-10 mt-5 mb-5 p-2 w-max block border-4 border-primary-600 rounded text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700"
-      >
-        SolidCommunity.net
-      </Link>
-      <Link
-        href=""
-        className="ml-10 p-2 w-max block border-4 border-primary-600 rounded text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700"
-      >
-        Login with Solid Identity Provider
-      </Link>
+      {!loggedIn && (
+        <>
+          <Link
+            href="https://solidcommunity.net/"
+            className="ml-10 mt-5 mb-5 p-2 w-max block border-4 border-primary-600 rounded text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700"
+          >
+            SolidCommunity.net
+          </Link>
+          <button
+            onClick={() => startLogin()}
+            className="ml-10 p-2 w-max block border-4 border-primary-600 rounded text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700"
+          >
+            Login with Solid Identity Provider
+          </button>
+        </>
+      )}
+      {loggedIn && (
+        <>
+          <p>You are logged in with WebID: {webID}</p>
+          <p>Form coming soon...please check back.</p>
+        </>
+      )}
     </>
   )
 }
