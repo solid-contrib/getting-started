@@ -12,30 +12,24 @@ export default function Page() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [webID, setWebID] = useState('')
   const session = getDefaultSession()
-
-  useEffect(() => {
-    console.log('about to complete login')
-    completeLogin()
-    console.log('session.info.isLoggedIn', session.info.isLoggedIn)
-    if (session.info.isLoggedIn) {
-      setWebID(session.info.webId || '')
+  // TODO: persist session upon refresh (by default, refreshing the page logs out the user)
+  // see https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/restore-session-browser-refresh/
+  handleIncomingRedirect({ restorePreviousSession: true }).then((info) => {
+    console.log('info.isloggedin', info?.isLoggedIn)
+    setWebID(info?.webId || '')
+    if (info?.isLoggedIn) {
       setLoggedIn(true)
     }
-  }, [session])
+  })
 
-  async function startLogin() {
-    // Start the Login Process if not already logged in.
+  function startLogin() {
     if (!getDefaultSession().info.isLoggedIn) {
-      await login({
+      login({
         oidcIssuer: 'https://onboarding.solidcommunity.net',
         redirectUrl: 'http://localhost:3000/add-resource',
         clientName: 'Solid Onboarding',
       })
     }
-  }
-
-  async function completeLogin() {
-    await handleIncomingRedirect()
   }
 
   return (
@@ -52,29 +46,28 @@ export default function Page() {
         >
           find a Pod Provider here
         </Link>{' '}
-        or you could use SolidCommunity.net, below.
+        or you could use{' '}
+        <Link
+          href="https://solidcommunity.net/"
+          className="border-b-2 border-b-primary-800  hover:text-white hover:bg-primary-700 hover:p-1"
+        >
+          SolidCommunity.net
+        </Link>
+        .
       </p>
       {!loggedIn && (
-        <>
-          <Link
-            href="https://solidcommunity.net/"
-            className="ml-10 mt-5 mb-5 p-2 w-max block border-4 border-primary-600 rounded text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700"
-          >
-            SolidCommunity.net
-          </Link>
-          <button
-            onClick={() => startLogin()}
-            className="ml-10 p-2 w-max block border-4 border-primary-600 rounded text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700"
-          >
-            Login with Solid Identity Provider
-          </button>
-        </>
+        <button
+          onClick={() => startLogin()}
+          className="mt-10 ml-10 p-2 w-max block border-4 border-primary-600 rounded text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700"
+        >
+          Login with Solid Identity Provider
+        </button>
       )}
       {loggedIn && (
-        <>
+        <div className="mt-10 ml-10">
           <p>You are logged in with WebID: {webID}</p>
           <p>Form coming soon...please check back.</p>
-        </>
+        </div>
       )}
     </>
   )
