@@ -10,14 +10,14 @@
     "print-lint-rules": "eslint --print-config app/page.tsx > eslintrules.json"
   },
   "dependencies": {
-    "@inrupt/solid-client": "^1.30.2",
-    "@inrupt/solid-client-authn-browser": "^1.17.5",
+    "@inrupt/solid-client": "^2.0.1",
+    "@inrupt/solid-client-authn-browser": "^2.2.1",
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "autoprefixer": "10.4.14",
     "eslint-config-next": "^13.5.6",
-    "next": "^13.5.6",
+    "next": "^14.2.3",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
