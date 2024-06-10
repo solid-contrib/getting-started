@@ -35,42 +35,8 @@ export default function Page() {
   }
 
   return (
-    <>
-      <p className="ml-10 text-lg font-semibold">
-        In order to add a new resource, you need to have a Solid WebID, and be
-        logged in.
-      </p>
-      <p className="ml-10 text-lg font-semibold">
-        To get a WebID, you should register for a Solid Pod. You can{' '}
-        <Link
-          href="https://solidproject.org/users/get-a-pod"
-          className="border-b-2 border-b-primary-800  hover:text-white hover:bg-primary-700 hover:p-1"
-        >
-          find a Pod Provider here
-        </Link>{' '}
-        or you could use{' '}
-        <Link
-          href="https://solidcommunity.net/"
-          className="border-b-2 border-b-primary-800  hover:text-white hover:bg-primary-700 hover:p-1"
-        >
-          SolidCommunity.net
-        </Link>
-        .
-      </p>
-      {!loggedIn && (
-        <button
-          onClick={() => startLogin()}
-          className="mt-10 ml-10 p-2 w-max block border-4 border-primary-600 rounded text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700"
-        >
-          Login with Solid Identity Provider
-        </button>
-      )}
-      {loggedIn && (
-        <div className="mt-10 ml-10">
-          <p>You are logged in with WebID: {webID}</p>
-          <p>Form coming soon...please check back.</p>
-        </div>
-      )}
-    </>
+    <div className="mt-10 ml-10">
+      <p>Form coming soon...please check back.</p>
+    </div>
   );
 }
