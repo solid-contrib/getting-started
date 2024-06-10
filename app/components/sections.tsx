@@ -1,32 +1,32 @@
-import React, { cache } from 'react'
-import Link from 'next/link'
-import { fetch } from '@inrupt/solid-client-authn-browser'
-import { getSolidDataset, getThingAll } from '@inrupt/solid-client'
+import React, { cache } from 'react';
+import Link from 'next/link';
+import { fetch } from '@inrupt/solid-client-authn-browser';
+import { getSolidDataset, getThingAll } from '@inrupt/solid-client';
 
 export default async function Sections() {
-  const linksList = await getData()
+  const linksList = await getData();
 
-  let referenceList = []
-  let explanationList = []
-  let tutorialList = []
-  let howToList = []
+  let referenceList = [];
+  let explanationList = [];
+  let tutorialList = [];
+  let howToList = [];
 
   for (let i = 0; i < linksList.length; i++) {
     switch (linksList[i].category) {
       case 'Reference':
-        referenceList.push(linksList[i])
-        break
+        referenceList.push(linksList[i]);
+        break;
       case 'Explanation':
-        explanationList.push(linksList[i])
-        break
+        explanationList.push(linksList[i]);
+        break;
       case 'Tutorial':
-        tutorialList.push(linksList[i])
-        break
+        tutorialList.push(linksList[i]);
+        break;
       case 'How-to':
-        howToList.push(linksList[i])
-        break
+        howToList.push(linksList[i]);
+        break;
       default:
-        console.log(`No category found`)
+        console.log(`No category found`);
     }
   }
 
@@ -133,11 +133,11 @@ export default async function Sections() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // revalidate the data at most every hour
-export const revalidate = 3600
+export const revalidate = 3600;
 
 const getData = cache(async () => {
   // getStaticProps is now deprecated, since all Nextjs 13 components are now server components by default,
@@ -147,27 +147,32 @@ const getData = cache(async () => {
   const myDataset = await getSolidDataset(
     'https://onboarding.solidcommunity.net/public/Links',
     { fetch }
-  )
+  );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
-  const links = getThingAll(myDataset)
+  const links = getThingAll(myDataset);
 
   // Build List of links, URL's, categories, about
-  const linksList: any = []
+  const linksList: any = [];
   for (let i = 0; i < links.length; i++) {
     let newLink: { name: string; url: string; category: string } = {
       name: '',
       url: '',
       category: '',
-    }
-    newLink.name = (links as any)[i].predicates['http://schema.org/name']
-      ?.literals['http://www.w3.org/2001/XMLSchema#string'][0]
+    };
+    newLink.name = (links as any)[i].predicates[
+      'http://schema.org/name'
+    ]?.literals['http://www.w3.org/2001/XMLSchema#string'][0];
     newLink.url = (links as any)[i].predicates['http://schema.org/URL']
-      ?.namedNodes[0]
+      ?.namedNodes
+      ? (links as any)[i].predicates['http://schema.org/URL']?.namedNodes[0]
+      : (links as any)[i].predicates['http://schema.org/URL']?.literals[
+          'http://www.w3.org/2001/XMLSchema#string'
+        ][0];
     newLink.category = (links as any)[i].predicates[
       'http://schema.org/category'
-    ]?.literals['http://www.w3.org/2001/XMLSchema#string'][0]
-    linksList.push(newLink)
+    ]?.literals['http://www.w3.org/2001/XMLSchema#string'][0];
+    linksList.push(newLink);
   }
-  return linksList
-})
+  return linksList;
+});
