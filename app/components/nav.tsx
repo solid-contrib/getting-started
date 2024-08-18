@@ -1,28 +1,28 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Nav() {
-  const pathname = usePathname()
-  const [activeItem, setActiveItem] = useState('')
+  const pathname = usePathname();
+  const [activeItem, setActiveItem] = useState('');
 
   useEffect(() => {
     switch (pathname) {
       case '/':
-        setActiveItem('Solid Documentation')
-        break
+        setActiveItem('Solid Documentation');
+        break;
       case '/add-resource':
-        setActiveItem('Add a Resource')
-        break
+        setActiveItem('Add a Resource');
+        break;
       default:
-        console.log(`404`)
+        console.log(`404`);
     }
-  }, [pathname])
+  }, [pathname]);
 
   return (
-    <div className="flex bg-primary-800 mb-10 pl-5 py-3">
+    <div className="flex bg-primary-800 mb-10 pl-10 py-3">
       <Link
         className={
           activeItem === 'Solid Documentation'
@@ -44,5 +44,5 @@ export default function Nav() {
         Add a Resource
       </Link>
     </div>
-  )
+  );
 }
