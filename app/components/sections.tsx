@@ -36,7 +36,7 @@ export default async function Sections() {
         <div className="mb-10" id="tutorials">
           <div className="max-w-max mb-2">
             <div className="bg-primary-800 p-3">
-              <span className="text-3xl text-primary-50">Tutorials</span>
+              <h2 className="text-3xl text-primary-50">Tutorials</h2>
             </div>
           </div>
           {tutorialList.length &&
@@ -55,9 +55,9 @@ export default async function Sections() {
         <div className="mb-10" id="how-to">
           <div className="max-w-max mb-2">
             <div className="bg-primary-800 p-3">
-              <span className="text-3xl text-primary-50">
+              <h2 className="text-3xl text-primary-50">
                 How-to Guides and Examples
-              </span>
+              </h2>
             </div>
           </div>
           {howToList.length &&
@@ -76,9 +76,9 @@ export default async function Sections() {
         <div className="mb-10" id="explanation">
           <div className="max-w-max mb-2">
             <div className="bg-primary-800 p-3">
-              <span className="text-3xl text-primary-50">
+              <h2 className="text-3xl text-primary-50">
                 Explanations and Walk-Throughs
-              </span>
+              </h2>
             </div>
           </div>
           {explanationList.length &&
@@ -97,9 +97,9 @@ export default async function Sections() {
         <div className="mb-10" id="reference">
           <div className="max-w-max mb-2">
             <div className="bg-primary-800 p-3">
-              <span className="text-3xl text-primary-50">
+              <h2 className="text-3xl text-primary-50">
                 Protocols, Specifications and other Reference Materials
-              </span>
+              </h2>
             </div>
           </div>
           {referenceList.length &&
@@ -155,9 +155,6 @@ const getData = cache(async () => {
   // Build List of links, URL's, categories, about
   const linksList: any = [];
   for (let i = 0; i < links.length; i++) {
-    console.log('link no.', i);
-    console.log('type', links[i]);
-    console.log(' ');
     let newLink: { name: string; url: string; category: string } = {
       name: '',
       url: '',
