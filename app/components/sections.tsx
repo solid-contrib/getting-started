@@ -116,19 +116,19 @@ export default async function Sections() {
         </div>
       </div>
       <div className="fixed top-52 right-1/4 text-xl">
-        <p className="text-2xl pl-1 text-primary-800 bg-primary-300">
+        <p className="text-2xl pl-1 text-primary-900 bg-primary-300">
           Sections
         </p>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700">
+        <div className="ml-3 mt-1 px-1 text-primary-900 bg-primary-300 hover:text-white hover:bg-primary-700">
           <a href="#tutorials">Tutorials</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700">
+        <div className="ml-3 mt-1 px-1 text-primary-900 bg-primary-300 hover:text-white hover:bg-primary-700">
           <a href="#how-to">How-To Guides</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700">
+        <div className="ml-3 mt-1 px-1 text-primary-900 bg-primary-300 hover:text-white hover:bg-primary-700">
           <a href="#explanation">Explanation</a>
         </div>
-        <div className="ml-3 mt-1 px-1 text-primary-800 bg-primary-300 hover:text-white hover:bg-primary-700">
+        <div className="ml-3 mt-1 px-1 text-primary-900 bg-primary-300 hover:text-white hover:bg-primary-700">
           <a href="#reference">Reference</a>
         </div>
       </div>
@@ -155,6 +155,9 @@ const getData = cache(async () => {
   // Build List of links, URL's, categories, about
   const linksList: any = [];
   for (let i = 0; i < links.length; i++) {
+    console.log('link no.', i);
+    console.log('type', links[i]);
+    console.log(' ');
     let newLink: { name: string; url: string; category: string } = {
       name: '',
       url: '',
