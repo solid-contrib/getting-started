@@ -1,7 +1,14 @@
 import React, { cache } from 'react';
 import Link from 'next/link';
 import { fetch } from '@inrupt/solid-client-authn-browser';
-import { getSolidDataset, getThingAll } from '@inrupt/solid-client';
+import {
+  getSolidDataset,
+  getThingAll,
+  getThing,
+  getUrl,
+  getUrlAll,
+  getStringNoLocale,
+} from '@inrupt/solid-client';
 
 export default async function Sections() {
   const linksList = await getData();
@@ -151,27 +158,18 @@ const getData = cache(async () => {
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
   const links = getThingAll(myDataset);
-
   // Build List of links, URL's, categories, about
   const linksList: any = [];
-  for (let i = 0; i < links.length; i++) {
-    let newLink: { name: string; url: string; category: string } = {
-      name: '',
-      url: '',
-      category: '',
+  for (const link of links) {
+    let newLink: {
+      name: string | null;
+      url: string | null;
+      category: string | null;
+    } = {
+      name: getStringNoLocale(link, 'http://schema.org/name'),
+      url: getUrl(link, 'http://schema.org/url'),
+      category: getStringNoLocale(link, 'http://schema.org/category'),
     };
-    newLink.name = (links as any)[i].predicates[
-      'http://schema.org/name'
-    ]?.literals['http://www.w3.org/2001/XMLSchema#string'][0];
-    newLink.url = (links as any)[i].predicates['http://schema.org/URL']
-      ?.namedNodes
-      ? (links as any)[i].predicates['http://schema.org/URL']?.namedNodes[0]
-      : (links as any)[i].predicates['http://schema.org/URL']?.literals[
-          'http://www.w3.org/2001/XMLSchema#string'
-        ][0];
-    newLink.category = (links as any)[i].predicates[
-      'http://schema.org/category'
-    ]?.literals['http://www.w3.org/2001/XMLSchema#string'][0];
     linksList.push(newLink);
   }
   return linksList;
