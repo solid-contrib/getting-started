@@ -1,14 +1,14 @@
 import React, { cache } from 'react';
 import Link from 'next/link';
 import { fetch } from '@inrupt/solid-client-authn-browser';
-import {
-  getSolidDataset,
-  getThingAll,
-  getThing,
-  getUrl,
-  getUrlAll,
-  getStringNoLocale,
-} from '@inrupt/solid-client';
+
+interface Link {
+  '@id': string;
+  'schema:about'?: string[] | string;
+  'schema:category': string;
+  'schema:name': string;
+  'schema:url': { '@id': string };
+}
 
 export default async function Sections() {
   const linksList = await getData();
@@ -151,24 +151,36 @@ const getData = cache(async () => {
   // so the pod data is apparently retrieved at build time and cached on the server--aka no wait time for users
   // even if the pod is down, the server will apparently use cached values, so the site is never slowed due to pod responses
   // one question: does it only make a request at build time, or also at run time, and then update its response if there is new data
-  const myDataset = await getSolidDataset(
+  function resolveUrl(link: Link) {
+    const urlString = link['schema:url']['@id'];
+    if (urlString.slice(0, 4) === 'http') {
+      return urlString;
+    }
+    const [prefix, suffix] = urlString.split(':');
+    return context[prefix] + suffix;
+  }
+
+  const response = await fetch(
     'https://onboarding.solidcommunity.net/public/Links',
-    { fetch }
+    {
+      headers: {
+        Accept: 'application/ld+json',
+      },
+    }
   );
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-  const links = getThingAll(myDataset);
-  // Build List of links, URL's, categories, about
+  const jsonLd = await response.json();
+  const graph = jsonLd['@graph'];
+  const context = jsonLd['@context'];
   const linksList: any = [];
-  for (const link of links) {
+  for (const link of graph) {
     let newLink: {
       name: string | null;
       url: string | null;
       category: string | null;
     } = {
-      name: getStringNoLocale(link, 'http://schema.org/name'),
-      url: getUrl(link, 'http://schema.org/url'),
-      category: getStringNoLocale(link, 'http://schema.org/category'),
+      name: link['schema:name'],
+      url: resolveUrl(link),
+      category: link['schema:category'],
     };
     linksList.push(newLink);
   }
